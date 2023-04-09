@@ -1,4 +1,7 @@
 const express = require('express')
+const cors=require('cors');
+
+
 const app = express()
 const port = 5000
 
@@ -6,7 +9,7 @@ const users=[
     {id: 0, name:"minhaj"},
     {id:1, name:"fahad"},
 ]
-
+app.use(cors())
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
