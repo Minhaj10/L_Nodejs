@@ -12,7 +12,13 @@ app.get('/', (req, res) => {
 })
 
 app.get('/users',(req,res)=>{
-    res.send('Here is my user')
+    const search = req.query.search;
+    if(search){
+        const searchresult=users.filter(user=>user.name.toLowerCase().includes(search));
+        res.send(searchresult);
+    }
+    else
+    res.send(users);
 })
 
 app.get('/users/:id',(req,res)=>{
