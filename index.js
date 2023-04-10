@@ -10,6 +10,9 @@ const users=[
     {id:1, name:"fahad"},
 ]
 app.use(cors())
+app.post('/users',(req,res)=>{
+  res.send('Hitting the post');
+})
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
