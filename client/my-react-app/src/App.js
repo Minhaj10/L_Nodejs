@@ -30,6 +30,16 @@ function App() {
       },
       body: JSON.stringify(info)
     })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data);
+      const newAddeduser=data;
+      const newdata=[...users,newAddeduser];
+      setUsers(newdata);
+    })
+
+    nameref.current.value='';
+    emailref.current.value='';
     e.preventDefault();
   }
 

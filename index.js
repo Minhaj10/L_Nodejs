@@ -6,13 +6,27 @@ const app = express()
 const port = 5000
 
 const users=[
-    {id: 0, name:"minhaj"},
-    {id:1, name:"fahad"},
+    {id: 0, name:"minhaj",email:"minhajumid987@gmail.com"},
+    {id:1, name:"fahad",email:"fahad@gamil.com"},
 ]
+
+//middleware
 app.use(cors())
+app.use(express.json())
+
+//post method
 app.post('/users',(req,res)=>{
-  res.send('Hitting the post');
+  const newUser=req.body;
+  newUser.id=users.length;
+  users.push(newUser);
+
+  console.log('hitting the post',req.body)
+  res.json(newUser);
 })
+
+
+
+//get method
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
